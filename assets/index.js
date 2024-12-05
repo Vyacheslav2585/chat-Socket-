@@ -4,7 +4,7 @@ const form1 = document.querySelector('input[type="button"]');
 const socket = io();
 const con = document.querySelector('.connected');
 const dis = document.querySelector('.disconnected');
-
+const countEl = document.querySelector('.number-message')
 // Функція для створення повідомлення
 function createMessage(text, className) {
     if (text && className) {
@@ -44,14 +44,26 @@ socket.on('disconnect', () => {
     con.classList.value = 'hide';
     dis.classList.value = 'disconnected';
 });
-
+socket.on('count',(count)=>{
+    countEl.textContent=count
+    console.log(count)
+})
 // Додаємо нове повідомлення при кліку
 form1.addEventListener('click', () => {
     const newMessage = form.value.trim(); // Беремо текст з поля введення
     if (newMessage) {
-        createMessage(newMessage, 'message-blue'); 
+        createMessage(newMessage, 'message-blue');
         socket.emit('newMessage', newMessage); // Відправляємо на сервер
         form.value = ''; // Очищаємо поле введення
     }
-   
 });
+form.addEventListener('keydown',(event)=>{
+    if(event.key==='Enter'){
+        const newMessage = form.value.trim(); // Беремо текст з поля введення
+        if (newMessage) {
+            createMessage(newMessage, 'message-blue');
+            socket.emit('newMessage', newMessage); // Відправляємо на сервер
+            form.value = ''; // Очищаємо поле введення
+        }
+    }
+})

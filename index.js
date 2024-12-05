@@ -12,9 +12,12 @@ const io = socketIO(server, {
 app.get('/',(req, res)=>{
     res.sendFile(__dirname+'/assets/index.html')
 })
+let count = 0
 app.use(express.static(__dirname+'/assets'))
 io.on('connection', (socket) => {
     console.log(`User connected: ${socket.id}`);
+    ++count;
+    io.emit('count',count)
 
     // Отримуємо повідомлення від клієнта
     socket.on('newMessage', (message) => {
@@ -24,6 +27,8 @@ io.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
+        --count
+        io.emit('count',count)
         console.log(`User disconnected: ${socket.id}`);
     });
 });

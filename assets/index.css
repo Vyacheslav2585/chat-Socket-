@@ -9,8 +9,9 @@ body{
 }
 .messages {
     background-color: #c5c5c57c;
-    height: 73vh;
-    width: 60vw;
+    height: 75vh;
+    width: 80vw;
+    background-color: rgba(180, 237, 218, 0.58);
     overflow-y: auto; /* Вмикає вертикальну прокрутку */
     padding-top: 10px;
     /* Приховуємо смугу прокрутки */
@@ -49,6 +50,8 @@ textarea {
     scrollbar-width: none; /* Для Firefox */
     -ms-overflow-style: none;
     resize: none;
+    font-family: 'Roboto', sans-serif;
+    outline: 2px solid #b7e6d6;
 }
 input[type='button'] {
     position: absolute;
@@ -58,9 +61,9 @@ input[type='button'] {
     padding: 1em 1.7em;
     font-size: 18px;
     border-radius: 0.5em;
-    background: #e8e8e8;
+    background: #d2f3e8;
     cursor: pointer;
-    border: 1px solid #e8e8e8;
+    border: none;
     transition: all 0.3s;
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
   }
@@ -187,4 +190,130 @@ input[type='button'] {
 }
 .hide{
     display: none;
+}
+/* From Uiverse.io by Li-Deheng */
+#btn-message {
+    --text-color: rgb(255, 255, 255);
+    --bg-color-sup: #5e5e5e;
+    --bg-color: rgba(232, 0, 116, 0);
+    --bg-hover-color: #e1e1e2;
+    --online-status: #00da00;
+    --font-size: 16px;
+    --btn-transition: all 0.2s ease-out;
+}
+
+.button-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 400 var(--font-size) Helvetica Neue, sans-serif;
+    box-shadow: 0 0 2.17382px rgba(0,0,0,.049),0 1.75px 6.01034px rgba(0,0,0,.07),0 3.63px 14.4706px rgba(0,0,0,.091),0 22px 48px rgba(0,0,0,.14);
+    background-color: var(--bg-color);
+    border-radius: 68px;
+    cursor: pointer;
+    padding: 6px 10px 6px 6px;
+    width: fit-content;
+    height: 40px;
+    border: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: var(--btn-transition);
+}
+
+
+.button-message:active {
+    transform: scale(0.99);
+}
+
+.content-avatar {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    transition: var(--btn-transition);
+    position: relative;
+}
+
+
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--bg-color-sup);
+}
+
+.user-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status-user {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    right: 1px;
+    bottom: 1px;
+    border-radius: 50%;
+    outline: solid 2px var(--bg-color);
+    background-color: var(--online-status);
+    transition: var(--btn-transition);
+    animation: active-status 2s ease-in-out infinite;
+}
+
+
+
+.notice-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 8px;
+    text-align: initial;
+    color: var(--text-color);
+}
+
+.username {
+    letter-spacing: -6px;
+    height: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: var(--btn-transition);
+}
+
+.user-id {
+    font-size: 12px;
+    letter-spacing: -6px;
+    height: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--btn-transition);
+}
+
+.lable-message {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transform: scaleY(1);
+    transition: var(--btn-transition);
+}
+
+
+.lable-message, .username {
+    font-weight: 600;
+}
+
+.number-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 8px;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    color: #00da00;
+    background-color: black;
+    border-radius: 20px;
 }
