@@ -3,6 +3,10 @@ body{
     
    
 }
+*{
+    margin: 0;
+    padding: 0;
+}
 .container{
     display: flex;
     justify-content: center;
@@ -122,6 +126,45 @@ input[type='button'] {
     top: 0;
     left: -15px;
 }
+.users{
+    position: absolute;
+    top: 10vh;
+    background-color: rgb(174, 245, 241);
+    padding: 10px;
+    border-radius: 10px;
+    user-select: none;
+}
+.highlight {
+    background-color: rgb(255, 0, 0);
+    font-weight: bold;
+    border-radius: 1px;
+    color: white;
+    
+}
+.userName{
+    list-style-type: none;
+    text-align: start;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 0  5px 5px 0;
+    padding: 5px;
+    font-weight: 500;
+    color: #089208;
+
+}
+.userName1{
+    list-style-type: none;
+    text-align: start;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    font-weight: 500;
+    color: #089208;
+    text-decoration: underline;
+}
+
 .message-blue:before {
     content: '';
     position: absolute;
@@ -169,6 +212,7 @@ input[type='button'] {
     border: 1px solid #dfd087;
     border-radius: 10px;
 }
+
 .connected{
     padding: 5px;
     margin: 5px 5px 0 0 ;
